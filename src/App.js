@@ -1,18 +1,16 @@
+//imports
+
 import React from 'react';
-//2fca9149
 import { useState, useEffect } from 'react';
 import './App.css';
 import SearchIcon from './search.svg';
 import MovieCard from './MovieCard.jsx';
-const API_URL = 'http://www.omdbapi.com?apikey=2fca9149';
+import Login from './login.js';
 
-const movie = {
-    "Title": "The Big Short",
-    "Year": "2015",
-    "imdbID": "tt1596363",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BNDc4MThhN2EtZjMzNC00ZDJmLThiZTgtNThlY2UxZWMzNjdkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg"
-} 
+//API Call
+const API_URL = 'http://www.omdbapi.com?apikey=2fca9149';
+//Sample Movie info
+
 
 const App = () => {
 
@@ -30,14 +28,14 @@ const App = () => {
     }
 
     useEffect(() => {
-        searchMovies('The big short');
+        searchMovies('');
 
         }, []);
 
 
 
 
-
+    //returns for the virtual DOM
     return (
         <div className="app">
             <h1>MovieLand</h1>
@@ -58,6 +56,8 @@ const App = () => {
 
             </div>
 
+            <Login />
+
             {
                 //if movies length is > 0 render movie card
                 movies?.length > 0
@@ -75,19 +75,18 @@ const App = () => {
                     };
 
 
-
-
+           
+           
            
 
 
 
-
-
+        
         </div>
-
+        //App end div
 
     );
-
+    //return end
 
 
 }
